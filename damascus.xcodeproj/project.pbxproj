@@ -140,6 +140,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		64618B1427C2D3E2004CF578 /* metaladder */ = {
+			isa = PBXGroup;
+			children = (
+				64C908D827C251F900531E27 /* add.metal */,
+			);
+			path = metaladder;
+			sourceTree = "<group>";
+		};
 		649C8C7627C24DCE00BAB1FA = {
 			isa = PBXGroup;
 			children = (
@@ -163,9 +171,9 @@
 		649C8C8127C24DCE00BAB1FA /* damascus */ = {
 			isa = PBXGroup;
 			children = (
+				64618B1427C2D3E2004CF578 /* metaladder */,
 				64C908DA27C2552800531E27 /* util */,
 				649C8C8227C24DCE00BAB1FA /* main.cpp */,
-				64C908D827C251F900531E27 /* add.metal */,
 			);
 			path = damascus;
 			sourceTree = "<group>";
@@ -508,7 +516,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				OTHER_CFLAGS = (
 					"-D",
-					"DAMASCUS_DEBUG_LEVEL=2",
+					"DAMASCUS_DEBUG_LEVEL=3",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SYSTEM_HEADER_SEARCH_PATHS = "${PROJECT_DIR}/include/metal-cpp";
@@ -524,7 +532,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				OTHER_CFLAGS = (
 					"-D",
-					"DAMASCUS_DEBUG_LEVEL=2",
+					"DAMASCUS_DEBUG_LEVEL=0",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SYSTEM_HEADER_SEARCH_PATHS = "${PROJECT_DIR}/include/metal-cpp";
