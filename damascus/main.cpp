@@ -28,9 +28,6 @@ void add_arrays(const float* inA,
 #define MAX_NUM 1000000.0f
 
 int main(int argc, const char * argv[]) {
-    damascus::Logger logger;
-    logger.SetLevel(damascus::Logger::LevelDebug);
-    
 //    MTL::Device* pDevice = MTL::CreateSystemDefaultDevice();
 //
 //    pDevice->release();
@@ -46,24 +43,20 @@ int main(int argc, const char * argv[]) {
     }
     
     {
-        damascus::Timer timer("CPU", logger);
+        damascus::Timer timer("CPU");
         add_arrays(a, b, out_cpu, SIZE);
         
         for (int i=0; i<3; i++) {
-            char buffer[50];
-            sprintf(buffer, "%.2f + %.2f = %.2f", a[i], b[i], out_cpu[i]);
-            logger.Debug(buffer);
+            DAMASCUS_DEBUG(a[i] << " + " << b[i] << " = " << out_cpu[i])
         }
     }
     
     {
-        damascus::Timer timer("GPU", logger);
+        damascus::Timer timer("GPU");
         add_arrays(a, b, out_gpu, SIZE);
         
         for (int i=0; i<3; i++) {
-            char buffer[50];
-            sprintf(buffer, "%.2f + %.2f = %.2f", a[i], b[i], out_cpu[i]);
-            logger.Debug(buffer);
+            DAMASCUS_DEBUG(a[i] << " + " << b[i] << " = " << out_cpu[i])
         }
     }
     

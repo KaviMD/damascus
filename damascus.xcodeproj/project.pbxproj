@@ -13,7 +13,6 @@
 		64C908D727C250FA00531E27 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64C908D627C250FA00531E27 /* Metal.framework */; };
 		64C908D927C251F900531E27 /* add.metal in Sources */ = {isa = PBXBuildFile; fileRef = 64C908D827C251F900531E27 /* add.metal */; };
 		64C908DD27C2553E00531E27 /* timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64C908DB27C2553E00531E27 /* timer.cpp */; };
-		64C908E027C25D7C00531E27 /* logger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64C908DE27C25D7C00531E27 /* logger.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -123,7 +122,6 @@
 		64C908D827C251F900531E27 /* add.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = add.metal; sourceTree = "<group>"; };
 		64C908DB27C2553E00531E27 /* timer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = timer.cpp; sourceTree = "<group>"; };
 		64C908DC27C2553E00531E27 /* timer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = timer.hpp; sourceTree = "<group>"; };
-		64C908DE27C25D7C00531E27 /* logger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = logger.cpp; sourceTree = "<group>"; };
 		64C908DF27C25D7C00531E27 /* logger.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = logger.hpp; sourceTree = "<group>"; };
 		64C908E127C25FFD00531E27 /* util.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = util.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -316,7 +314,6 @@
 		64C908DA27C2552800531E27 /* util */ = {
 			isa = PBXGroup;
 			children = (
-				64C908DE27C25D7C00531E27 /* logger.cpp */,
 				64C908DF27C25D7C00531E27 /* logger.hpp */,
 				64C908DB27C2553E00531E27 /* timer.cpp */,
 				64C908DC27C2553E00531E27 /* timer.hpp */,
@@ -385,7 +382,6 @@
 				649C8C8327C24DCE00BAB1FA /* main.cpp in Sources */,
 				64C908D927C251F900531E27 /* add.metal in Sources */,
 				64C908DD27C2553E00531E27 /* timer.cpp in Sources */,
-				64C908E027C25D7C00531E27 /* logger.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,6 +506,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NNBM84Y92Q;
 				ENABLE_HARDENED_RUNTIME = YES;
+				OTHER_CFLAGS = (
+					"-D",
+					"DAMASCUS_DEBUG_LEVEL=2",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SYSTEM_HEADER_SEARCH_PATHS = "${PROJECT_DIR}/include/metal-cpp";
 			};
@@ -522,6 +522,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NNBM84Y92Q;
 				ENABLE_HARDENED_RUNTIME = YES;
+				OTHER_CFLAGS = (
+					"-D",
+					"DAMASCUS_DEBUG_LEVEL=2",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SYSTEM_HEADER_SEARCH_PATHS = "${PROJECT_DIR}/include/metal-cpp";
 			};
