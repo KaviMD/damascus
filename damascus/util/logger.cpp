@@ -11,19 +11,24 @@ void damascus::Logger::SetLevel(Level level) {
     m_LogLevel = level;
 }
 
+void damascus::Logger::Debug(const char* message) const {
+    if (m_LogLevel >= LevelDebug)
+        std::cout << "[DEBUG]: " << message << std::endl;
+}
+
 void damascus::Logger::Info(const char* message) const {
     if (m_LogLevel >= LevelInfo)
-        std::cout << "[INFO]: " <<  message << std::endl;
+        std::cout << "[INFO]: " << message << std::endl;
 }
 
 void damascus::Logger::Warn(const char* message) const {
     if (m_LogLevel >= LevelWarning)
-        std::cout << "[WARNING]: " <<  message << std::endl;
+        std::cout << "[WARNING]: " << message << std::endl;
 }
 
 void damascus::Logger::Error(const char* message) const {
     if (m_LogLevel >= LevelError)
-        std::cout << "[ERROR]: " <<  message << std::endl;
+        std::cout << "[ERROR]: " << message << std::endl;
 }
 
 damascus::Logger::~Logger() {

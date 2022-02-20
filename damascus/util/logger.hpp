@@ -7,7 +7,7 @@ namespace damascus {
 class Logger {
 public:
     enum Level {
-        LevelError = 0, LevelWarning, LevelInfo
+        LevelError = 0, LevelWarning, LevelInfo, LevelDebug
     };
 private:
     Level m_LogLevel;
@@ -17,6 +17,7 @@ public:
     
     void SetLevel(Level level);
     
+    void Debug(const char* message) const;
     void Info(const char* message) const;
     void Warn(const char* message) const;
     void Error(const char* message) const;

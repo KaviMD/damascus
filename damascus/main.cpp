@@ -25,9 +25,12 @@ void add_arrays(const float* inA,
 }
 
 #define SIZE 500000
-#define MAX_NUM 1000
+#define MAX_NUM 1000000.0f
 
 int main(int argc, const char * argv[]) {
+    damascus::Logger logger;
+    logger.SetLevel(damascus::Logger::LevelDebug);
+    
 //    MTL::Device* pDevice = MTL::CreateSystemDefaultDevice();
 //
 //    pDevice->release();
@@ -35,18 +38,32 @@ int main(int argc, const char * argv[]) {
     float a[SIZE];
     float b[SIZE];
     float out_cpu[SIZE];
+    float out_gpu[SIZE];
     
     for (int i=0; i<SIZE; i++) {
-        a[i] = rand() % MAX_NUM;
-        b[i] = rand() % MAX_NUM;
+        a[i] = (float) rand() / MAX_NUM;
+        b[i] = (float) rand() / MAX_NUM;
     }
     
     {
-        damascus::Timer timer("CPU");
+        damascus::Timer timer("CPU", logger);
         add_arrays(a, b, out_cpu, SIZE);
         
         for (int i=0; i<3; i++) {
-            std::cout << a[i] << " + " << b[i] << " = " << out_cpu[i] << std::endl;
+            char buffer[50];
+            sprintf(buffer, "%.2f + %.2f = %.2f", a[i], b[i], out_cpu[i]);
+            logger.Debug(buffer);
+        }
+    }
+    
+    {
+        damascus::Timer timer("GPU", logger);
+        add_arrays(a, b, out_gpu, SIZE);
+        
+        for (int i=0; i<3; i++) {
+            char buffer[50];
+            sprintf(buffer, "%.2f + %.2f = %.2f", a[i], b[i], out_cpu[i]);
+            logger.Debug(buffer);
         }
     }
     
